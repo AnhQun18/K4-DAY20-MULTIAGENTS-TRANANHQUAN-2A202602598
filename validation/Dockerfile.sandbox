@@ -1,0 +1,3 @@
+FROM python:3.11-slim@sha256:a2bc8c35469b6fe37735f7c4dae39049470b2ce068e73f799c02452de31d24c6
+RUN pip install --no-cache-dir pytest==9.1.1 python-dateutil==2.9.0.post0 pandas==3.0.6
+WORKDIR /sandbox

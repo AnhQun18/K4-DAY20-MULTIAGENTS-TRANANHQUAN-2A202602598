@@ -1,0 +1,76 @@
+[
+  {
+    "wrapped": false,
+    "step": 0,
+    "content": "",
+    "tool_calls": [
+      {
+        "name": "lookup_value",
+        "args": {},
+        "id": "call_00_1RtJxl9Vk9eYHG6iRkF20136",
+        "type": "tool_call"
+      }
+    ],
+    "usage": {
+      "input_tokens": 274,
+      "output_tokens": 22,
+      "total_tokens": 296,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {}
+    }
+  },
+  {
+    "wrapped": false,
+    "step": 1,
+    "content": "42",
+    "tool_calls": [],
+    "usage": {
+      "input_tokens": 309,
+      "output_tokens": 1,
+      "total_tokens": 310,
+      "input_token_details": {
+        "cache_read": 128
+      },
+      "output_token_details": {}
+    }
+  },
+  {
+    "wrapped": true,
+    "step": 0,
+    "content": "",
+    "tool_calls": [
+      {
+        "name": "lookup_value",
+        "args": {},
+        "id": "call_00_nvqQNdCoU01U6DeCUxJH6700",
+        "type": "tool_call"
+      }
+    ],
+    "usage": {
+      "input_tokens": 274,
+      "output_tokens": 22,
+      "total_tokens": 296,
+      "input_token_details": {
+        "cache_read": 128
+      },
+      "output_token_details": {}
+    }
+  },
+  {
+    "wrapped": true,
+    "step": 1,
+    "content": "42",
+    "tool_calls": [],
+    "usage": {
+      "input_tokens": 309,
+      "output_tokens": 1,
+      "total_tokens": 310,
+      "input_token_details": {
+        "cache_read": 128
+      },
+      "output_token_details": {}
+    }
+  }
+]

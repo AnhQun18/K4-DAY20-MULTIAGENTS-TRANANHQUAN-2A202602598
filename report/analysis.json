@@ -1,0 +1,179 @@
+{
+  "freeze_exists": false,
+  "recorded_runs": 6,
+  "expected_official_runs": 18,
+  "usable_recorded_runs": 4,
+  "excluded_infrastructure_runs": [
+    "subagents/code-learn",
+    "subagents/logs-learn"
+  ],
+  "official_total_tokens": 1731328,
+  "errors": [
+    "data-learn",
+    "code-learn",
+    "data-learn",
+    "logs-learn"
+  ],
+  "modified_skills": [],
+  "summary": {
+    "baseline/learn": {
+      "runs": 3,
+      "mean_score": 0.45555555555555555,
+      "mean_tokens": 365170.3333333333,
+      "mean_seconds": 222.16666666666669,
+      "technical_passed": 13,
+      "technical_total": 18,
+      "rules_passed": 0,
+      "rules_total": 9,
+      "score_per_1000_tokens": 0.0012475152387029127,
+      "subagent_calls": 0,
+      "runs_reading_skills": 0
+    },
+    "subagents/learn": {
+      "runs": 1,
+      "mean_score": 0.0,
+      "mean_tokens": 432725,
+      "mean_seconds": 405.8,
+      "technical_passed": 0,
+      "technical_total": 5,
+      "rules_passed": 0,
+      "rules_total": 3,
+      "score_per_1000_tokens": 0.0,
+      "subagent_calls": 0,
+      "runs_reading_skills": 0
+    }
+  },
+  "raw_summary": {
+    "baseline/learn": {
+      "runs": 3,
+      "mean_score": 0.45555555555555555,
+      "mean_tokens": 365170.3333333333,
+      "mean_seconds": 222.16666666666669,
+      "technical_passed": 13,
+      "technical_total": 18,
+      "rules_passed": 0,
+      "rules_total": 9,
+      "score_per_1000_tokens": 0.0012475152387029127,
+      "subagent_calls": 0,
+      "runs_reading_skills": 0
+    },
+    "subagents/learn": {
+      "runs": 3,
+      "mean_score": 0.03333333333333333,
+      "mean_tokens": 211939,
+      "mean_seconds": 268.73333333333335,
+      "technical_passed": 1,
+      "technical_total": 18,
+      "rules_passed": 0,
+      "rules_total": 9,
+      "score_per_1000_tokens": 0.00015727795890956047,
+      "subagent_calls": 0,
+      "runs_reading_skills": 0
+    }
+  },
+  "learning_failures": [
+    {
+      "task": "code-learn",
+      "name": "rule_type_hints",
+      "passed": false,
+      "detail": "RULE: every public function (name not starting with '_') in the package has type annotations on all parameters and on the return value."
+    },
+    {
+      "task": "code-learn",
+      "name": "rule_regression_tests",
+      "passed": false,
+      "detail": "RULE: add tests/test_regressions.py with one test function per bug you fixed (at least 3); the file must pass."
+    },
+    {
+      "task": "code-learn",
+      "name": "rule_changelog",
+      "passed": false,
+      "detail": "RULE: record each fix in CHANGELOG.md under the heading '## Unreleased' as a bullet '- fix(<function name>): <short description>' (at least 3 bullets)."
+    },
+    {
+      "task": "data-learn",
+      "name": "north_q1_revenue",
+      "passed": false,
+      "detail": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\admin\\\\AppData\\\\Local\\\\Temp\\\\lab-0owqlthu\\\\workspace\\\\answer.json'"
+    },
+    {
+      "task": "data-learn",
+      "name": "north_q1_orders",
+      "passed": false,
+      "detail": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\admin\\\\AppData\\\\Local\\\\Temp\\\\lab-0owqlthu\\\\workspace\\\\answer.json'"
+    },
+    {
+      "task": "data-learn",
+      "name": "top_region",
+      "passed": false,
+      "detail": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\admin\\\\AppData\\\\Local\\\\Temp\\\\lab-0owqlthu\\\\workspace\\\\answer.json'"
+    },
+    {
+      "task": "data-learn",
+      "name": "missing_amount_orders",
+      "passed": false,
+      "detail": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\admin\\\\AppData\\\\Local\\\\Temp\\\\lab-0owqlthu\\\\workspace\\\\answer.json'"
+    },
+    {
+      "task": "data-learn",
+      "name": "duplicate_rows_removed",
+      "passed": false,
+      "detail": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\admin\\\\AppData\\\\Local\\\\Temp\\\\lab-0owqlthu\\\\workspace\\\\answer.json'"
+    },
+    {
+      "task": "data-learn",
+      "name": "rule_money_in_cents",
+      "passed": false,
+      "detail": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\admin\\\\AppData\\\\Local\\\\Temp\\\\lab-0owqlthu\\\\workspace\\\\answer.json'"
+    },
+    {
+      "task": "data-learn",
+      "name": "rule_meta_block",
+      "passed": false,
+      "detail": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\admin\\\\AppData\\\\Local\\\\Temp\\\\lab-0owqlthu\\\\workspace\\\\answer.json'"
+    },
+    {
+      "task": "data-learn",
+      "name": "rule_clean_csv",
+      "passed": false,
+      "detail": "RULE: write workspace/clean.csv with the header order_id,timestamp_utc,region,amount_cents; one row per distinct order with a known amount; timestamp_utc as YYYY-MM-DDTHH:MM:SSZ (UTC); region in canonical spelling (North, South, East, West); amount in integer cents."
+    },
+    {
+      "task": "logs-learn",
+      "name": "rule_service_names",
+      "passed": false,
+      "detail": "RULE: service names in the output are lower-case with '-' replaced by '_' (payment-service -> payment_service)."
+    },
+    {
+      "task": "logs-learn",
+      "name": "rule_sorted_errors",
+      "passed": false,
+      "detail": "RULE: `errors` is sorted by service, then by timestamp_utc, ascending."
+    },
+    {
+      "task": "logs-learn",
+      "name": "rule_schema_header",
+      "passed": false,
+      "detail": "RULE: the top-level object has \"schema_version\": 2 and \"generated_by\": \"log-triage\"."
+    }
+  ],
+  "worker_calls_from_trace": {
+    "code-learn": {},
+    "data-learn": {},
+    "logs-learn": {}
+  },
+  "skills": [
+    {
+      "name": "repo-conventions",
+      "lines": 11,
+      "validation": []
+    },
+    {
+      "name": "verify-before-finish",
+      "lines": 11,
+      "validation": []
+    }
+  ],
+  "skills_sha256": "a652aeca1f4e28aead84f98d782e160c1bd85d8727e7a18850e23e320a2c00a1",
+  "noise": []
+}

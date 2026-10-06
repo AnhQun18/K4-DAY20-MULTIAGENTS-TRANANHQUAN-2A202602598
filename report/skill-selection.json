@@ -1,0 +1,17 @@
+{
+  "retained": [
+    "log-triage",
+    "python-package-fix",
+    "tabular-data-cleanup"
+  ],
+  "removed_previous_set": [
+    "repo-conventions",
+    "verify-before-finish",
+    "structured-output-rules"
+  ],
+  "real_curator_calls": 2,
+  "reruns": 1,
+  "manual_skill_edits": false,
+  "retained_hash": "db1d157bfde9f453338dae7b548dd7b3162d89ff84fa942819acb6d6f3ed8e3f",
+  "reason": "Second automatically generated set scopes rules separately to Python, tabular data and logs; contains bounded diagnostics in each domain."
+}

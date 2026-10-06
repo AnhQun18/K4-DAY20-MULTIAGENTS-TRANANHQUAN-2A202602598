@@ -1,0 +1,12 @@
+{
+  "phase": "API resumption",
+  "configured_model": "deepseek-chat",
+  "reported_model": "deepseek-flash",
+  "reply": "OK",
+  "tokens": {
+    "input": 8,
+    "output": 1,
+    "total": 9
+  },
+  "note": "Copied from successful API tool output; exact request timestamp was not retained."
+}

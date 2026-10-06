@@ -1,0 +1,13 @@
+{
+  "finished_task_attempts": 21,
+  "finished_task_tokens": 8333322,
+  "curator_tokens": 8760,
+  "tool_probe_tokens": 1212,
+  "token_total_is_lower_bound": true,
+  "unmeasured": [
+    "small initial API connection probe",
+    "requests interrupted before usage returned",
+    "older runs outside event history"
+  ],
+  "measured_tokens_lower_bound": 8343294
+}

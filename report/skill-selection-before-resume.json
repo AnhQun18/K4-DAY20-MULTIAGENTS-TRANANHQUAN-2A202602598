@@ -1,0 +1,16 @@
+{
+  "retained": [
+    "repo-conventions",
+    "verify-before-finish"
+  ],
+  "removed": [
+    "structured-output-rules"
+  ],
+  "reason": "Mixed log-specific metadata into generic JSON and dropped missing rows before counting missing entities.",
+  "manual_skill_edits": false,
+  "real_curator_calls": 1,
+  "reruns": 0,
+  "rerun_not_performed": "API key removed before attempted rerun was launched",
+  "original_generated_hash": "b0a2ad09b91e6e2d8944902e22b68f63c5e20caa4e979378feda9af5b5bc1baa",
+  "retained_hash": "a652aeca1f4e28aead84f98d782e160c1bd85d8727e7a18850e23e320a2c00a1"
+}

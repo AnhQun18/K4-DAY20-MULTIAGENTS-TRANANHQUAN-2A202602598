@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-10-06T07:59:27.260157+00:00",
+  "mode": "offline",
+  "model_api_calls_in_finalization": 0,
+  "tests": {
+    "tests": 52,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "recorded_runs": 6,
+  "expected_runs": 18,
+  "submission_complete": false,
+  "audit_status": "FAIL"
+}

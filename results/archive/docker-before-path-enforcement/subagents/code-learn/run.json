@@ -1,0 +1,74 @@
+{
+  "task": "code-learn",
+  "condition": "subagents",
+  "role": "learn",
+  "timestamp": "2026-10-06T05:41:02.755751+00:00",
+  "error": null,
+  "skills_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "seconds": 235.4,
+  "tokens": {
+    "input": 124207,
+    "output": 5860,
+    "total": 130067
+  },
+  "tool_calls": 19,
+  "subagent_calls": 1,
+  "skills_read": 0,
+  "skills_modified": false,
+  "final_message": "All 6 tests pass and the documented edge cases behave as specified. No test files were touched.\n\n## Summary\n\nFixed three source modules in `workspace/inventory/` (tests untouched, no new files or dependencies):\n\n**`workspace/inventory/pricing.py`**\n- `parse_price`: it only stripped whitespace and removed `$`, so `\"$1,299.50\"` raised `decimal.InvalidOperation` and accounting-style negatives were ignored. It now also removes thousands separators and negates values wrapped in parentheses, matching all four documented formats (`\"$1,299.50\"`, `\"  12 \"`, `\"1299.5\"`, `\"(12.00)\"`).\n- `apply_discount`: `quantize(Decimal(\"0.01\"))` used the context default `ROUND_HALF_EVEN`, giving `9.04` for `10.05` at 10%. It now passes `rounding=ROUND_HALF_UP` (imported from `decimal`), so the documented commercial half-up rule holds (`0.005 -> 0.01`).\n\n**`workspace/inventory/report.py`**\n- `low_stock`: used `<=` and returned items in input order. It now selects quantities strictly below the threshold and sorts the names alphabetically ignoring case (`sorted(..., key=str.lower)`), as the docstring requires.\n- `total_value` was re-checked against its docstring and already correct (optional `discount` defaulting to 0), so it was left unchanged.\n\n**`workspace/inventory/export.py`**\n- `to_csv_row`: never quoted names. It now applies the RFC 4180 rule from the docstring — a name containing a comma or a double quote is wrapped in double quotes with inner quotes doubled — while still formatting the price with 2 decimals.\n\nVerification: `cd workspace && python -m pytest tests -q` → **6 passed**, plus an ad-hoc check of the uncovered docstring cases (parenthesised prices with `$`/commas, half-up boundaries, strict-below threshold, case-insensitive ordering, and CSV quoting for commas/quotes) which all pass.",
+  "score": 0.7,
+  "passed": 7,
+  "total": 10,
+  "checks": [
+    {
+      "name": "visible_suite_passes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tests_not_modified",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "parse_price_all_formats",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "other_caller_fixed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "discount_rounds_half_up",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "low_stock_follows_docstring",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "csv_quoting_follows_docstring",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_type_hints",
+      "passed": false,
+      "detail": "RULE: every public function (name not starting with '_') in the package has type annotations on all parameters and on the return value."
+    },
+    {
+      "name": "rule_regression_tests",
+      "passed": false,
+      "detail": "RULE: add tests/test_regressions.py with one test function per bug you fixed (at least 3); the file must pass."
+    },
+    {
+      "name": "rule_changelog",
+      "passed": false,
+      "detail": "RULE: record each fix in CHANGELOG.md under the heading '## Unreleased' as a bullet '- fix(<function name>): <short description>' (at least 3 bullets)."
+    }
+  ]
+}

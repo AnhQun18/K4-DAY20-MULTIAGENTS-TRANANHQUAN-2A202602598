@@ -1,0 +1,46 @@
+[
+  {
+    "timestamp": "2026-10-06T06:03:11.525059+00:00",
+    "model": "deepseek-chat",
+    "source_condition": "baseline",
+    "source_role": "learn",
+    "seconds": 4.5,
+    "tokens": {
+      "input": 8018,
+      "output": 742,
+      "total": 8760
+    },
+    "skills": [
+      "C:\\Users\\admin\\Documents\\Lab\\K4-DAY20-MULTIAGENTS-TRANANHQUAN-2A202602598\\skills\\auto\\verify-before-finish\\SKILL.md",
+      "C:\\Users\\admin\\Documents\\Lab\\K4-DAY20-MULTIAGENTS-TRANANHQUAN-2A202602598\\skills\\auto\\repo-conventions\\SKILL.md",
+      "C:\\Users\\admin\\Documents\\Lab\\K4-DAY20-MULTIAGENTS-TRANANHQUAN-2A202602598\\skills\\auto\\structured-output-rules\\SKILL.md"
+    ],
+    "skills_sha256": "b0a2ad09b91e6e2d8944902e22b68f63c5e20caa4e979378feda9af5b5bc1baa",
+    "manual_edits": false,
+    "primary_curator_calls": 1
+  },
+  {
+    "timestamp": "2026-10-06T09:36:01.563863+00:00",
+    "model": "deepseek-chat",
+    "source_condition": "baseline",
+    "source_role": "learn",
+    "seconds": 4.4,
+    "tokens": {
+      "input": 8089,
+      "output": 820,
+      "total": 8909
+    },
+    "skills": [
+      "report\\curator-attempt-2\\skills\\python-package-fix\\SKILL.md",
+      "report\\curator-attempt-2\\skills\\tabular-data-cleanup\\SKILL.md",
+      "report\\curator-attempt-2\\skills\\log-triage\\SKILL.md"
+    ],
+    "skills_sha256": "db1d157bfde9f453338dae7b548dd7b3162d89ff84fa942819acb6d6f3ed8e3f",
+    "output_dir": "report/curator-attempt-2/skills",
+    "reported_models": [
+      "deepseek-flash"
+    ],
+    "manual_edits": false,
+    "primary_curator_calls": 2
+  }
+]

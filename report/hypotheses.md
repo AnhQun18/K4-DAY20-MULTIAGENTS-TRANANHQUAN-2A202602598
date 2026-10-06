@@ -1,0 +1,7 @@
+# Giả thuyết đăng ký trước đánh giá
+
+Các dự đoán này được viết từ thiết kế thí nghiệm và phản hồi tập học, trước khi chạy hoặc xem điểm tập đánh giá. Chúng sẽ được đưa nguyên văn vào commit `hypotheses` và giữ nguyên trong báo cáo cuối.
+
+- H1 (subagents so với baseline): Dự đoán subagents có điểm kỹ thuật trên tập đánh giá ít nhất ngang baseline nhờ explorer đọc đặc tả và reviewer kiểm tra độc lập; token trung bình cao hơn ít nhất 20%. Không dự đoán worker tự biết quy ước tổ chức chưa được cung cấp. Căn cứ: `guides/pseudocode/02_subagents.md`, vai trò trong `src/lab/subagents.py` và cơ chế ngữ cảnh riêng của công cụ `task` trong `report/tour.txt`.
+- H2 (skills-auto so với baseline): Dự đoán skills-auto đạt điểm đánh giá cao nhất và tăng ít nhất 0,15 điểm trung bình so với baseline, chủ yếu nhờ các check `rule_` tái sử dụng quy ước đã học. Không dự đoán đạt mọi quy ước mới. Căn cứ: phản hồi thiếu type hints, regression tests, changelog ở tác vụ học; cơ chế nạp dần theo description trong `guides/pseudocode/05_skill_quality.md` và GUIDE Phần 3.
+- H3 (tác vụ học so với tác vụ đánh giá): Dự đoán mức tăng điểm trung bình của skills-auto so với baseline trên tập học lớn hơn mức tăng trên tập đánh giá, vì curator chỉ học quy ước của tập học còn tập đánh giá thêm quy ước mới. Chênh lệch phải được xét cùng nhiễu giữa hai lần chạy cùng skill, và không tự chứng minh quá khớp. Căn cứ: `README.md` mục 2.2 và GUIDE Phần 4.2.
