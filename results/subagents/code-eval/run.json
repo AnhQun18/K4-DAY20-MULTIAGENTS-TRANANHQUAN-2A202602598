@@ -1,0 +1,90 @@
+{
+  "task": "code-eval",
+  "condition": "subagents",
+  "role": "eval",
+  "timestamp": "2026-10-06T09:44:29.902126+00:00",
+  "error": null,
+  "skills_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "seconds": 272.7,
+  "tokens": {
+    "input": 255511,
+    "output": 6775,
+    "total": 262286
+  },
+  "usage_by_model": {
+    "deepseek-flash": {
+      "output_tokens": 6775,
+      "input_tokens": 255511,
+      "total_tokens": 262286,
+      "input_token_details": {
+        "cache_read": 236800
+      },
+      "output_token_details": {}
+    }
+  },
+  "tool_calls": 29,
+  "subagent_calls": 1,
+  "skills_read": 0,
+  "skills_modified": false,
+  "final_message": "All tests pass and no extra files were added. Summary of the changes:\n\n**`workspace/bookings/timeutil.py`** — `parse_duration` only accepted `\"1h30m\"`. Rewrote the regex as a fullmatch alternation covering all four documented forms (`1h30m`, `2h`, `45m`, `1:30`, bare `45`), still stripping surrounding whitespace, returning an `int`, and raising `ValueError` for anything else.\n\n**`workspace/bookings/schedule.py`** — `add_slot` used a mutable default (`slots=[]`) and mutated/returned the shared list, so calls leaked state. Changed the default to `None` and now returns a brand-new list (`[*(slots or []), slot]`), leaving any caller-supplied list untouched. `total_minutes` was already correct and is unchanged.\n\n**`workspace/bookings/billing.py`** — `billable_blocks` used `round(minutes / block)` (round-to-nearest, no validation). Now raises `ValueError` for negative `minutes` and always rounds up using integer arithmetic (`-(-minutes // block)`), so 16 min → 2 blocks, 20 → 2, 45 → 3.\n\n`workspace/bookings/calendar_export.py` and `workspace/bookings/__init__.py` were already correct and were left untouched; nothing under `workspace/tests/` was modified.\n\nVerification: `cd workspace && python -m pytest tests -q` → **3 passed**, plus an independent check of every docstring case (all duration formats and invalid inputs, `add_slot` non-mutation across calls, rounding/validation in `billable_blocks`, and `slot_end`) — all passed.",
+  "score": 0.6363636363636364,
+  "passed": 7,
+  "total": 11,
+  "checks": [
+    {
+      "name": "visible_suite_passes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tests_not_modified",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "parse_duration_all_formats",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "other_caller_fixed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "billable_blocks_round_up",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "add_slot_no_shared_state",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "negative_minutes_rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_type_hints",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "rule_regression_tests",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "rule_changelog",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "rule_version_bump",
+      "passed": false,
+      "detail": ""
+    }
+  ]
+}

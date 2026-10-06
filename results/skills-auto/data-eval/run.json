@@ -1,0 +1,80 @@
+{
+  "task": "data-eval",
+  "condition": "skills-auto",
+  "role": "eval",
+  "timestamp": "2026-10-06T09:46:10.570625+00:00",
+  "error": null,
+  "skills_sha256": "db1d157bfde9f453338dae7b548dd7b3162d89ff84fa942819acb6d6f3ed8e3f",
+  "seconds": 116.2,
+  "tokens": {
+    "input": 121658,
+    "output": 2614,
+    "total": 124272
+  },
+  "usage_by_model": {
+    "deepseek-flash": {
+      "output_token_details": {},
+      "output_tokens": 2614,
+      "total_tokens": 124272,
+      "input_token_details": {
+        "cache_read": 112256
+      },
+      "input_tokens": 121658
+    }
+  },
+  "tool_calls": 15,
+  "subagent_calls": 0,
+  "skills_read": 3,
+  "skills_modified": false,
+  "final_message": "Done. `workspace/answer.json` is written and verified.\n\n**How I cleaned the data**\n\n1. **Deduplication** — 88 raw events collapsed to 83 distinct orders by `id`, keeping the first occurrence of each (5 duplicate events removed). Duplicates were exact re-deliveries (e.g. `A-2006`, `A-2011`, `A-2024`, `A-2026`, `A-2058`, `A-2047`).\n2. **Totals** — parsed numbers and comma-formatted strings (`\"1,250.00\"`) into `Decimal`; `-1` (and blank/unparseable) treated as *missing*. 7 distinct orders have a missing total and were excluded from all revenue sums.\n3. **Timestamps** — parsed the ISO-8601 offsets (`Z`, `+07:00`, `-05:00`, `+00:00`) and converted to UTC before deciding the month. This matters at the boundaries: `A-3001` (2024-04-01T01:00+07:00) lands in March UTC, while `A-3002` (2024-03-31T22:30-05:00) falls out into April.\n4. **Categories** — trimmed whitespace and lowercased (`\" garden \"`, `GARDEN`, `Garden` → `garden`) before aggregating revenue.\n\n**Results**\n\n| key | value |\n|---|---|\n| `march_revenue_utc` | 52957.19 |\n| `march_orders_utc` | 44 |\n| `top_category` | toys |\n| `missing_total_orders` | 7 |\n| `duplicate_events_removed` | 5 |\n\nPer the Acme reporting conventions I also included `schema_version: 2` and `generated_by: \"orders-triage\"`. All figures were cross-checked with an independent second script (float-based, separate dedupe logic) which produced identical values.\n\nFiles created: `workspace/answer.json`, `workspace/analyze.py`.",
+  "score": 0.5555555555555556,
+  "passed": 5,
+  "total": 9,
+  "checks": [
+    {
+      "name": "march_revenue_utc",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "march_orders_utc",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "top_category",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "missing_total_orders",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "duplicate_events_removed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_money_in_cents",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "rule_meta_block",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "rule_clean_csv",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "rule_sorted_keys_format",
+      "passed": false,
+      "detail": ""
+    }
+  ]
+}

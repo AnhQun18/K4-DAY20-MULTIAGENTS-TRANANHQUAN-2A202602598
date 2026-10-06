@@ -83,7 +83,7 @@ def main():
     for path in skills:
         if validate_skill(path.read_text(encoding="utf-8"), path.parent.name):
             problems.append(f"Invalid skill: {path.parent.name}")
-    freeze = subprocess.run([".venv/Scripts/python.exe", "scripts/verify_freeze.py"], cwd=ROOT,
+    freeze = subprocess.run([".venv/Scripts/python.exe", "-X", "utf8", "scripts/verify_freeze.py"], cwd=ROOT,
                             capture_output=True, text=True)
     if freeze.returncode:
         problems.append(freeze.stdout.strip())

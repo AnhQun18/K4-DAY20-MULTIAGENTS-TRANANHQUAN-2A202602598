@@ -1,0 +1,90 @@
+{
+  "task": "code-eval",
+  "condition": "skills-auto",
+  "role": "eval",
+  "timestamp": "2026-10-06T09:44:33.995876+00:00",
+  "error": null,
+  "skills_sha256": "db1d157bfde9f453338dae7b548dd7b3162d89ff84fa942819acb6d6f3ed8e3f",
+  "seconds": 92.6,
+  "tokens": {
+    "input": 60873,
+    "output": 2831,
+    "total": 63704
+  },
+  "usage_by_model": {
+    "deepseek-flash": {
+      "output_token_details": {},
+      "output_tokens": 2831,
+      "total_tokens": 63704,
+      "input_token_details": {
+        "cache_read": 57856
+      },
+      "input_tokens": 60873
+    }
+  },
+  "tool_calls": 22,
+  "subagent_calls": 0,
+  "skills_read": 1,
+  "skills_modified": false,
+  "final_message": "All 9 tests pass. Summary of changes:\n\n**Source fixes (`workspace/bookings/`)**\n- `timeutil.py` — `parse_duration` only matched `\"1h30m\"`. Rewrote it to handle every documented format: `\"1h30m\"`, `\"2h\"`, `\"45m\"`, `\"1:30\"`, and bare minutes `\"45\"`, with surrounding whitespace ignored and `ValueError` for anything else. Added type hints.\n- `billing.py` — `billable_blocks` used `round()`, which rounds to nearest (20 min → 1 block). Switched to `math.ceil` so partial blocks always round up, and added the documented `ValueError` for negative `minutes`. Added type hints.\n- `schedule.py` — `add_slot` used a mutable default `slots=[]` and mutated it, so calls shared state. It now returns a new list (`[*slots, slot]`) without mutating the input. Added type hints to both public functions.\n- `calendar_export.py` — added type hints to `slot_end` (behavior was already correct).\n\n**Tests / docs**\n- Added `workspace/tests/test_regressions.py` with one test per fixed bug plus coverage of docstring behaviors the visible tests missed (all duration formats, negative-minutes error, no shared state, no input mutation, `slot_end`).\n- Recorded the three fixes in `workspace/CHANGELOG.md` under `## Unreleased`.\n\nExisting files in `tests/` were left untouched.",
+  "score": 0.9090909090909091,
+  "passed": 10,
+  "total": 11,
+  "checks": [
+    {
+      "name": "visible_suite_passes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tests_not_modified",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "parse_duration_all_formats",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "other_caller_fixed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "billable_blocks_round_up",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "add_slot_no_shared_state",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "negative_minutes_rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_type_hints",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_regression_tests",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_changelog",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_version_bump",
+      "passed": false,
+      "detail": ""
+    }
+  ]
+}

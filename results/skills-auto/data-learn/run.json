@@ -1,0 +1,75 @@
+{
+  "task": "data-learn",
+  "condition": "skills-auto",
+  "role": "learn",
+  "timestamp": "2026-10-06T09:46:34.397892+00:00",
+  "error": null,
+  "skills_sha256": "db1d157bfde9f453338dae7b548dd7b3162d89ff84fa942819acb6d6f3ed8e3f",
+  "seconds": 127.1,
+  "tokens": {
+    "input": 102974,
+    "output": 2838,
+    "total": 105812
+  },
+  "usage_by_model": {
+    "deepseek-flash": {
+      "output_token_details": {},
+      "output_tokens": 2838,
+      "total_tokens": 105812,
+      "input_token_details": {
+        "cache_read": 99456
+      },
+      "input_tokens": 102974
+    }
+  },
+  "tool_calls": 16,
+  "subagent_calls": 0,
+  "skills_read": 3,
+  "skills_modified": false,
+  "final_message": "Both artifacts are written and verified. Summary of the work:\n\n**Cleaning steps**\n- **Deduplication**: 101 raw rows → 94 distinct `order_id`s; 7 duplicate rows removed (S-1009, S-1021, S-1022, S-1024, S-1053, S-1072, S-1087). All duplicate pairs were byte-identical, so keeping the first occurrence was unambiguous.\n- **Region canonicalization**: trimmed whitespace and fixed case (`\"West \"`, `\"NORTH\"`, `\"north\"` → `North/South/East/West`).\n- **Timestamps**: parsed all three formats (`YYYY-MM-DD`, `DD/MM/YYYY`, ISO-8601 with offsets incl. `Z`) and normalized to UTC `YYYY-MM-DDTHH:MM:SSZ`. This matters for the quarter boundary — e.g. S-2002 (`2024-01-01T00:30+07:00` = 2023-12-31T17:30Z) is excluded, while S-2003 (`2023-12-31T21:00-05:00` = 2024-01-01T02:00Z) is included.\n- **Money**: stored as integer cents; `-999` treated as unknown/missing and excluded from all revenue.\n\n**Results** (`workspace/answer.json`)\n- `north_q1_revenue`: 3130.24 (10 orders, all with known amounts)\n- `north_q1_orders`: 10\n- `top_region`: North (9504.47, ahead of South 9136.24, East 8790.82, West 8475.68)\n- `missing_amount_orders`: 8\n- `duplicate_rows_removed`: 7\n- Plus the reporting-convention keys `schema_version: 1` and `generated_by: \"tabular-data-cleanup\"`.\n\n**Files created**: `workspace/answer.json`, `workspace/clean.csv` (header `order_id,timestamp_utc,region,amount_cents`, 94 rows), and the script `workspace/clean_sales.py`.",
+  "score": 0.625,
+  "passed": 5,
+  "total": 8,
+  "checks": [
+    {
+      "name": "north_q1_revenue",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "north_q1_orders",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "top_region",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "missing_amount_orders",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "duplicate_rows_removed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_money_in_cents",
+      "passed": false,
+      "detail": "RULE: money values in answer.json are integer cents (1606.67 USD is written 160667)."
+    },
+    {
+      "name": "rule_meta_block",
+      "passed": false,
+      "detail": "RULE: answer.json has an object `meta` = {\"source\": <input file name>, \"rows_in\": <number of data rows in the input file, duplicates included>, \"rows_used\": <number of distinct orders with a known amount>}."
+    },
+    {
+      "name": "rule_clean_csv",
+      "passed": false,
+      "detail": "RULE: write workspace/clean.csv with the header order_id,timestamp_utc,region,amount_cents; one row per distinct order with a known amount; timestamp_utc as YYYY-MM-DDTHH:MM:SSZ (UTC); region in canonical spelling (North, South, East, West); amount in integer cents."
+    }
+  ]
+}

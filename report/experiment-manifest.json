@@ -31,23 +31,27 @@
   "sandbox_image": "lab-agent-sandbox:py311",
   "sandbox_image_id": "sha256:001a36124c662d39bfc8b05e70ba8925e262fd1fe5bec70bbc6232289f7f146a",
   "rate_scope": "12 RPM per process, shared by main and worker model calls",
-  "status": "resumed_learning_validation",
-  "api_calls_stopped": false,
+  "status": "complete",
+  "api_calls_stopped": true,
   "api_key_removed_by_user": false,
-  "retained_skills_sha256": "a652aeca1f4e28aead84f98d782e160c1bd85d8727e7a18850e23e320a2c00a1",
-  "freeze_status": "pending skills-auto learning validation",
+  "retained_skills_sha256": "db1d157bfde9f453338dae7b548dd7b3162d89ff84fa942819acb6d6f3ed8e3f",
+  "freeze_status": "verified 6 skills-auto runs",
   "shell_path_guard": "Relative workspace/skills paths; shell find/grep use file tools",
   "post_experiment_retry_fix": {
     "reason": "model_copy max_retries did not reconfigure already-created SDK clients",
     "sync_async_sdk_clients_copied_with_max_retries": 0,
     "verification": "real DeepSeek SDK with offline HTTP MockTransport",
     "recorded_experiments_predate_fix": true,
-    "live_api_rerun_after_fix": false
+    "live_api_rerun_after_fix": true,
+    "live_verification": "Resumed learning and all evaluation runs completed or recorded fixed-budget agent failures."
   },
   "resumed_utc": "2026-10-06T09:40:02.566025+00:00",
   "curator_calls": 2,
   "selected_skills_sha256": "db1d157bfde9f453338dae7b548dd7b3162d89ff84fa942819acb6d6f3ed8e3f",
   "transient_only_task_retries_after_resume": true,
   "reported_provider_model_on_resume": "deepseek-flash",
-  "old_run_model_identity_limitation": "Older records store the configured alias but not usage-by-model identity; primary eval will use one resumed configuration."
+  "old_run_model_identity_limitation": "Older records store the configured alias but not usage-by-model identity; primary eval will use one resumed configuration.",
+  "official_runs": 18,
+  "development_runs": 3,
+  "completion_status_file": "report/completion-status.json"
 }

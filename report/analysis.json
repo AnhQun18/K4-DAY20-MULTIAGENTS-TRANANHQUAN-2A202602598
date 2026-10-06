@@ -1,17 +1,15 @@
 {
-  "freeze_exists": false,
-  "recorded_runs": 6,
+  "freeze_exists": true,
+  "recorded_runs": 18,
   "expected_official_runs": 18,
-  "usable_recorded_runs": 4,
-  "excluded_infrastructure_runs": [
-    "subagents/code-learn",
-    "subagents/logs-learn"
-  ],
-  "official_total_tokens": 1731328,
+  "usable_recorded_runs": 18,
+  "excluded_infrastructure_runs": [],
+  "official_total_tokens": 4505323,
   "errors": [
     "data-learn",
-    "code-learn",
+    "data-eval",
     "data-learn",
+    "logs-eval",
     "logs-learn"
   ],
   "modified_skills": [],
@@ -29,18 +27,70 @@
       "subagent_calls": 0,
       "runs_reading_skills": 0
     },
-    "subagents/learn": {
-      "runs": 1,
-      "mean_score": 0.0,
-      "mean_tokens": 432725,
-      "mean_seconds": 405.8,
-      "technical_passed": 0,
-      "technical_total": 5,
+    "baseline/eval": {
+      "runs": 3,
+      "mean_score": 0.5973063973063973,
+      "mean_tokens": 158188.66666666666,
+      "mean_seconds": 177.23333333333332,
+      "technical_passed": 18,
+      "technical_total": 18,
       "rules_passed": 0,
-      "rules_total": 3,
-      "score_per_1000_tokens": 0.0,
+      "rules_total": 12,
+      "score_per_1000_tokens": 0.0037759114473417655,
       "subagent_calls": 0,
       "runs_reading_skills": 0
+    },
+    "subagents/learn": {
+      "runs": 3,
+      "mean_score": 0.2333333333333333,
+      "mean_tokens": 371023.6666666667,
+      "mean_seconds": 378.26666666666665,
+      "technical_passed": 7,
+      "technical_total": 18,
+      "rules_passed": 0,
+      "rules_total": 9,
+      "score_per_1000_tokens": 0.0006288906996948083,
+      "subagent_calls": 1,
+      "runs_reading_skills": 0
+    },
+    "subagents/eval": {
+      "runs": 3,
+      "mean_score": 0.21212121212121213,
+      "mean_tokens": 418960,
+      "mean_seconds": 372.0,
+      "technical_passed": 7,
+      "technical_total": 18,
+      "rules_passed": 0,
+      "rules_total": 12,
+      "score_per_1000_tokens": 0.000506304210715133,
+      "subagent_calls": 1,
+      "runs_reading_skills": 0
+    },
+    "skills-auto/learn": {
+      "runs": 3,
+      "mean_score": 0.875,
+      "mean_tokens": 97370.66666666667,
+      "mean_seconds": 113.16666666666667,
+      "technical_passed": 18,
+      "technical_total": 18,
+      "rules_passed": 6,
+      "rules_total": 9,
+      "score_per_1000_tokens": 0.008986279235361778,
+      "subagent_calls": 0,
+      "runs_reading_skills": 3
+    },
+    "skills-auto/eval": {
+      "runs": 3,
+      "mean_score": 0.7882154882154883,
+      "mean_tokens": 91061,
+      "mean_seconds": 106.1,
+      "technical_passed": 18,
+      "technical_total": 18,
+      "rules_passed": 6,
+      "rules_total": 12,
+      "score_per_1000_tokens": 0.008655906350858087,
+      "subagent_calls": 0,
+      "runs_reading_skills": 3
     }
   },
   "raw_summary": {
@@ -57,18 +107,70 @@
       "subagent_calls": 0,
       "runs_reading_skills": 0
     },
+    "baseline/eval": {
+      "runs": 3,
+      "mean_score": 0.5973063973063973,
+      "mean_tokens": 158188.66666666666,
+      "mean_seconds": 177.23333333333332,
+      "technical_passed": 18,
+      "technical_total": 18,
+      "rules_passed": 0,
+      "rules_total": 12,
+      "score_per_1000_tokens": 0.0037759114473417655,
+      "subagent_calls": 0,
+      "runs_reading_skills": 0
+    },
     "subagents/learn": {
       "runs": 3,
-      "mean_score": 0.03333333333333333,
-      "mean_tokens": 211939,
-      "mean_seconds": 268.73333333333335,
-      "technical_passed": 1,
+      "mean_score": 0.2333333333333333,
+      "mean_tokens": 371023.6666666667,
+      "mean_seconds": 378.26666666666665,
+      "technical_passed": 7,
       "technical_total": 18,
       "rules_passed": 0,
       "rules_total": 9,
-      "score_per_1000_tokens": 0.00015727795890956047,
-      "subagent_calls": 0,
+      "score_per_1000_tokens": 0.0006288906996948083,
+      "subagent_calls": 1,
       "runs_reading_skills": 0
+    },
+    "subagents/eval": {
+      "runs": 3,
+      "mean_score": 0.21212121212121213,
+      "mean_tokens": 418960,
+      "mean_seconds": 372.0,
+      "technical_passed": 7,
+      "technical_total": 18,
+      "rules_passed": 0,
+      "rules_total": 12,
+      "score_per_1000_tokens": 0.000506304210715133,
+      "subagent_calls": 1,
+      "runs_reading_skills": 0
+    },
+    "skills-auto/learn": {
+      "runs": 3,
+      "mean_score": 0.875,
+      "mean_tokens": 97370.66666666667,
+      "mean_seconds": 113.16666666666667,
+      "technical_passed": 18,
+      "technical_total": 18,
+      "rules_passed": 6,
+      "rules_total": 9,
+      "score_per_1000_tokens": 0.008986279235361778,
+      "subagent_calls": 0,
+      "runs_reading_skills": 3
+    },
+    "skills-auto/eval": {
+      "runs": 3,
+      "mean_score": 0.7882154882154883,
+      "mean_tokens": 91061,
+      "mean_seconds": 106.1,
+      "technical_passed": 18,
+      "technical_total": 18,
+      "rules_passed": 6,
+      "rules_total": 12,
+      "score_per_1000_tokens": 0.008655906350858087,
+      "subagent_calls": 0,
+      "runs_reading_skills": 3
     }
   },
   "learning_failures": [
@@ -158,22 +260,65 @@
     }
   ],
   "worker_calls_from_trace": {
-    "code-learn": {},
+    "code-eval": {
+      "truncated-in-trace": 1
+    },
+    "code-learn": {
+      "truncated-in-trace": 1
+    },
+    "data-eval": {},
     "data-learn": {},
+    "logs-eval": {},
     "logs-learn": {}
   },
   "skills": [
     {
-      "name": "repo-conventions",
-      "lines": 11,
+      "name": "log-triage",
+      "lines": 15,
       "validation": []
     },
     {
-      "name": "verify-before-finish",
-      "lines": 11,
+      "name": "python-package-fix",
+      "lines": 12,
+      "validation": []
+    },
+    {
+      "name": "tabular-data-cleanup",
+      "lines": 14,
       "validation": []
     }
   ],
-  "skills_sha256": "a652aeca1f4e28aead84f98d782e160c1bd85d8727e7a18850e23e320a2c00a1",
-  "noise": []
+  "skills_sha256": "db1d157bfde9f453338dae7b548dd7b3162d89ff84fa942819acb6d6f3ed8e3f",
+  "noise": [
+    {
+      "task": "code-learn",
+      "dev_passed": 10,
+      "official_passed": 10,
+      "total": 10,
+      "score_delta": 0.0,
+      "same_skills": true,
+      "dev_tokens": 80015,
+      "official_tokens": 80119
+    },
+    {
+      "task": "data-learn",
+      "dev_passed": 5,
+      "official_passed": 5,
+      "total": 8,
+      "score_delta": 0.0,
+      "same_skills": true,
+      "dev_tokens": 107571,
+      "official_tokens": 105812
+    },
+    {
+      "task": "logs-learn",
+      "dev_passed": 9,
+      "official_passed": 9,
+      "total": 9,
+      "score_delta": 0.0,
+      "same_skills": true,
+      "dev_tokens": 92927,
+      "official_tokens": 106181
+    }
+  ]
 }

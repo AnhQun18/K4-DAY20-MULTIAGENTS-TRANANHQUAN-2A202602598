@@ -1,0 +1,85 @@
+{
+  "task": "code-learn",
+  "condition": "skills-auto",
+  "role": "learn",
+  "timestamp": "2026-10-06T09:38:13.306238+00:00",
+  "error": null,
+  "skills_sha256": "db1d157bfde9f453338dae7b548dd7b3162d89ff84fa942819acb6d6f3ed8e3f",
+  "seconds": 112.6,
+  "tokens": {
+    "input": 77130,
+    "output": 2885,
+    "total": 80015
+  },
+  "usage_by_model": {
+    "deepseek-flash": {
+      "output_tokens": 2885,
+      "input_tokens": 77130,
+      "total_tokens": 80015,
+      "input_token_details": {
+        "cache_read": 69760
+      },
+      "output_token_details": {}
+    }
+  },
+  "tool_calls": 22,
+  "subagent_calls": 0,
+  "skills_read": 1,
+  "skills_modified": false,
+  "final_message": "All 13 tests pass. Summary of changes:\n\n**`inventory/pricing.py`**\n- `parse_price`: now strips `,` thousands separators and handles accounting-style parentheses (`\"(12.00)\"` → `Decimal(\"-12.00\")`), which previously raised `InvalidOperation`. Added type hints.\n- `apply_discount`: now quantizes with `ROUND_HALF_UP` (the docstring's commercial rule) instead of the default banker's rounding, so `10.05` at 10% gives `9.05`. Added type hints.\n\n**`inventory/report.py`**\n- `low_stock`: fixed the comparison to be strictly below the threshold (`<` instead of `<=`) and sorts names case-insensitively as documented. Added type hints.\n- `total_value`: added type hints (logic was already correct).\n\n**`inventory/export.py`**\n- `to_csv_row`: implemented RFC 4180 quoting — names containing a comma or double quote are wrapped in quotes with inner quotes doubled. Added type hints.\n\n**`tests/test_regressions.py`** (new): one regression test per bug fixed (7 tests).\n\n**`CHANGELOG.md`**: added four `- fix(<function>): ...` bullets under `## Unreleased`.\n\nExisting tests in `tests/` were not modified.",
+  "score": 1.0,
+  "passed": 10,
+  "total": 10,
+  "checks": [
+    {
+      "name": "visible_suite_passes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tests_not_modified",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "parse_price_all_formats",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "other_caller_fixed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "discount_rounds_half_up",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "low_stock_follows_docstring",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "csv_quoting_follows_docstring",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_type_hints",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_regression_tests",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_changelog",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

@@ -1,18 +1,13 @@
 {
   "expected_official_runs": 18,
-  "recorded_runs": 6,
+  "recorded_runs": 18,
   "generated_skills": 3,
-  "recorded_tokens": 2208582,
+  "recorded_tokens": 4505323,
   "original_files_unchanged": true,
   "configured_secret_scan": "passed",
   "configured_keys_available_for_scan": 1,
   "generic_api_key_pattern_scan": "passed",
-  "freeze_check": "FAIL: git tag `freeze` not found",
-  "problems": [
-    "Missing tasks in baseline: ['code-eval', 'data-eval', 'logs-eval']",
-    "Missing tasks in subagents: ['code-eval', 'data-eval', 'logs-eval']",
-    "Missing tasks in skills-auto: ['code-eval', 'code-learn', 'data-eval', 'data-learn', 'logs-eval', 'logs-learn']",
-    "FAIL: git tag `freeze` not found"
-  ],
-  "status": "FAIL"
+  "freeze_check": "checked 6 runs of skill conditions: OK",
+  "problems": [],
+  "status": "OK"
 }

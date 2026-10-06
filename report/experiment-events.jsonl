@@ -229,3 +229,77 @@
 {"timestamp": "2026-10-06T09:42:05.985921+00:00", "event": "progress", "task": "logs-learn", "condition": "subagents", "model_calls": 45}
 {"timestamp": "2026-10-06T09:42:30.890447+00:00", "event": "progress", "task": "logs-learn", "condition": "subagents", "model_calls": 50}
 {"timestamp": "2026-10-06T09:42:31.040448+00:00", "event": "finish", "task": "logs-learn", "condition": "subagents", "results": "results", "attempt": 1, "passed": 0, "total": 9, "tokens": 445774, "seconds": 401.5, "error": "GraphRecursionError: Recursion limit of 100 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langgraph/errors/GRAPH_RECURSION_LIMIT", "skills_read": 0, "subagent_calls": 0}
+{"timestamp": "2026-10-06T09:44:29.886126+00:00", "event": "batch", "condition": "subagents", "tasks": ["eval"], "workers": 2, "recursion_limit": 100, "model": "deepseek-chat", "temperature": 0.0, "rpm": "12", "backend": "docker"}
+{"timestamp": "2026-10-06T09:44:29.893128+00:00", "event": "start", "task": "code-eval", "condition": "subagents", "results": "results", "attempt": 1}
+{"timestamp": "2026-10-06T09:44:29.894181+00:00", "event": "start", "task": "data-eval", "condition": "subagents", "results": "results", "attempt": 1}
+{"timestamp": "2026-10-06T09:44:32.080418+00:00", "event": "batch", "condition": "baseline", "tasks": ["eval"], "workers": 2, "recursion_limit": 100, "model": "deepseek-chat", "temperature": 0.0, "rpm": "12", "backend": "docker"}
+{"timestamp": "2026-10-06T09:44:32.084421+00:00", "event": "start", "task": "code-eval", "condition": "baseline", "results": "results", "attempt": 1}
+{"timestamp": "2026-10-06T09:44:32.085860+00:00", "event": "start", "task": "data-eval", "condition": "baseline", "results": "results", "attempt": 1}
+{"timestamp": "2026-10-06T09:44:33.984844+00:00", "event": "batch", "condition": "skills-auto", "tasks": ["all"], "workers": 2, "recursion_limit": 100, "model": "deepseek-chat", "temperature": 0.0, "rpm": "12", "backend": "docker"}
+{"timestamp": "2026-10-06T09:44:33.988866+00:00", "event": "start", "task": "code-eval", "condition": "skills-auto", "results": "results", "attempt": 1}
+{"timestamp": "2026-10-06T09:44:33.989876+00:00", "event": "start", "task": "code-learn", "condition": "skills-auto", "results": "results", "attempt": 1}
+{"timestamp": "2026-10-06T09:45:11.593863+00:00", "event": "progress", "task": "data-eval", "condition": "subagents", "model_calls": 5}
+{"timestamp": "2026-10-06T09:45:13.761824+00:00", "event": "progress", "task": "data-eval", "condition": "baseline", "model_calls": 5}
+{"timestamp": "2026-10-06T09:45:16.224325+00:00", "event": "progress", "task": "code-eval", "condition": "subagents", "model_calls": 5}
+{"timestamp": "2026-10-06T09:45:17.279292+00:00", "event": "progress", "task": "code-eval", "condition": "skills-auto", "model_calls": 5}
+{"timestamp": "2026-10-06T09:45:20.530101+00:00", "event": "progress", "task": "code-learn", "condition": "skills-auto", "model_calls": 5}
+{"timestamp": "2026-10-06T09:45:20.557054+00:00", "event": "progress", "task": "code-eval", "condition": "baseline", "model_calls": 5}
+{"timestamp": "2026-10-06T09:46:00.951130+00:00", "event": "progress", "task": "data-eval", "condition": "subagents", "model_calls": 10}
+{"timestamp": "2026-10-06T09:46:03.060878+00:00", "event": "finish", "task": "code-eval", "condition": "baseline", "results": "results", "attempt": 1, "passed": 7, "total": 11, "tokens": 46722, "seconds": 87.6, "error": null, "skills_read": 0, "subagent_calls": 0}
+{"timestamp": "2026-10-06T09:46:03.067226+00:00", "event": "start", "task": "logs-eval", "condition": "baseline", "results": "results", "attempt": 1}
+{"timestamp": "2026-10-06T09:46:03.573377+00:00", "event": "progress", "task": "data-eval", "condition": "baseline", "model_calls": 10}
+{"timestamp": "2026-10-06T09:46:06.594542+00:00", "event": "progress", "task": "code-eval", "condition": "subagents", "model_calls": 10}
+{"timestamp": "2026-10-06T09:46:06.645246+00:00", "event": "progress", "task": "code-eval", "condition": "skills-auto", "model_calls": 10}
+{"timestamp": "2026-10-06T09:46:10.564151+00:00", "event": "finish", "task": "code-eval", "condition": "skills-auto", "results": "results", "attempt": 1, "passed": 10, "total": 11, "tokens": 63704, "seconds": 92.6, "error": null, "skills_read": 1, "subagent_calls": 0}
+{"timestamp": "2026-10-06T09:46:10.565110+00:00", "event": "start", "task": "data-eval", "condition": "skills-auto", "results": "results", "attempt": 1}
+{"timestamp": "2026-10-06T09:46:11.887138+00:00", "event": "progress", "task": "code-learn", "condition": "skills-auto", "model_calls": 10}
+{"timestamp": "2026-10-06T09:46:34.391874+00:00", "event": "finish", "task": "code-learn", "condition": "skills-auto", "results": "results", "attempt": 1, "passed": 10, "total": 10, "tokens": 80119, "seconds": 117.2, "error": null, "skills_read": 1, "subagent_calls": 0}
+{"timestamp": "2026-10-06T09:46:34.392711+00:00", "event": "start", "task": "data-learn", "condition": "skills-auto", "results": "results", "attempt": 1}
+{"timestamp": "2026-10-06T09:46:48.289304+00:00", "event": "progress", "task": "logs-eval", "condition": "baseline", "model_calls": 5}
+{"timestamp": "2026-10-06T09:46:51.446433+00:00", "event": "progress", "task": "data-eval", "condition": "subagents", "model_calls": 15}
+{"timestamp": "2026-10-06T09:46:53.614107+00:00", "event": "progress", "task": "data-eval", "condition": "baseline", "model_calls": 15}
+{"timestamp": "2026-10-06T09:46:55.321288+00:00", "event": "progress", "task": "data-eval", "condition": "skills-auto", "model_calls": 5}
+{"timestamp": "2026-10-06T09:46:56.459567+00:00", "event": "progress", "task": "code-eval", "condition": "subagents", "model_calls": 15}
+{"timestamp": "2026-10-06T09:47:20.541245+00:00", "event": "progress", "task": "data-learn", "condition": "skills-auto", "model_calls": 5}
+{"timestamp": "2026-10-06T09:47:36.024531+00:00", "event": "progress", "task": "data-eval", "condition": "subagents", "model_calls": 20}
+{"timestamp": "2026-10-06T09:47:38.629854+00:00", "event": "progress", "task": "logs-eval", "condition": "baseline", "model_calls": 10}
+{"timestamp": "2026-10-06T09:47:43.393585+00:00", "event": "progress", "task": "data-eval", "condition": "baseline", "model_calls": 20}
+{"timestamp": "2026-10-06T09:47:45.661749+00:00", "event": "progress", "task": "data-eval", "condition": "skills-auto", "model_calls": 10}
+{"timestamp": "2026-10-06T09:47:52.884688+00:00", "event": "progress", "task": "code-eval", "condition": "subagents", "model_calls": 20}
+{"timestamp": "2026-10-06T09:48:06.953046+00:00", "event": "finish", "task": "data-eval", "condition": "skills-auto", "results": "results", "attempt": 1, "passed": 5, "total": 9, "tokens": 124272, "seconds": 116.2, "error": null, "skills_read": 3, "subagent_calls": 0}
+{"timestamp": "2026-10-06T09:48:06.954049+00:00", "event": "start", "task": "logs-eval", "condition": "skills-auto", "results": "results", "attempt": 1}
+{"timestamp": "2026-10-06T09:48:10.379277+00:00", "event": "progress", "task": "data-learn", "condition": "skills-auto", "model_calls": 10}
+{"timestamp": "2026-10-06T09:48:26.666069+00:00", "event": "progress", "task": "data-eval", "condition": "subagents", "model_calls": 25}
+{"timestamp": "2026-10-06T09:48:28.349615+00:00", "event": "progress", "task": "logs-eval", "condition": "baseline", "model_calls": 15}
+{"timestamp": "2026-10-06T09:48:33.454978+00:00", "event": "progress", "task": "data-eval", "condition": "baseline", "model_calls": 25}
+{"timestamp": "2026-10-06T09:48:41.676663+00:00", "event": "finish", "task": "data-learn", "condition": "skills-auto", "results": "results", "attempt": 1, "passed": 5, "total": 8, "tokens": 105812, "seconds": 127.1, "error": null, "skills_read": 3, "subagent_calls": 0}
+{"timestamp": "2026-10-06T09:48:41.677546+00:00", "event": "start", "task": "logs-learn", "condition": "skills-auto", "results": "results", "attempt": 1}
+{"timestamp": "2026-10-06T09:48:43.157422+00:00", "event": "progress", "task": "code-eval", "condition": "subagents", "model_calls": 25}
+{"timestamp": "2026-10-06T09:48:44.953962+00:00", "event": "finish", "task": "data-eval", "condition": "baseline", "results": "results", "attempt": 1, "passed": 5, "total": 9, "tokens": 257859, "seconds": 252.7, "error": null, "skills_read": 0, "subagent_calls": 0}
+{"timestamp": "2026-10-06T09:48:56.920850+00:00", "event": "progress", "task": "logs-eval", "condition": "skills-auto", "model_calls": 5}
+{"timestamp": "2026-10-06T09:49:03.675507+00:00", "event": "progress", "task": "logs-eval", "condition": "baseline", "model_calls": 20}
+{"timestamp": "2026-10-06T09:49:04.800165+00:00", "event": "finish", "task": "code-eval", "condition": "subagents", "results": "results", "attempt": 1, "passed": 7, "total": 11, "tokens": 262286, "seconds": 272.7, "error": null, "skills_read": 0, "subagent_calls": 1}
+{"timestamp": "2026-10-06T09:49:04.801167+00:00", "event": "start", "task": "logs-eval", "condition": "subagents", "results": "results", "attempt": 1}
+{"timestamp": "2026-10-06T09:49:14.609579+00:00", "event": "finish", "task": "logs-eval", "condition": "baseline", "results": "results", "attempt": 1, "passed": 6, "total": 10, "tokens": 169985, "seconds": 191.4, "error": null, "skills_read": 0, "subagent_calls": 0}
+{"timestamp": "2026-10-06T09:49:16.371368+00:00", "event": "progress", "task": "data-eval", "condition": "subagents", "model_calls": 30}
+{"timestamp": "2026-10-06T09:49:30.431866+00:00", "event": "progress", "task": "logs-learn", "condition": "skills-auto", "model_calls": 5}
+{"timestamp": "2026-10-06T09:49:45.231804+00:00", "event": "progress", "task": "logs-eval", "condition": "skills-auto", "model_calls": 10}
+{"timestamp": "2026-10-06T09:49:51.553580+00:00", "event": "progress", "task": "logs-eval", "condition": "subagents", "model_calls": 5}
+{"timestamp": "2026-10-06T09:49:56.665070+00:00", "event": "finish", "task": "logs-eval", "condition": "skills-auto", "results": "results", "attempt": 1, "passed": 9, "total": 10, "tokens": 85207, "seconds": 109.5, "error": null, "skills_read": 1, "subagent_calls": 0}
+{"timestamp": "2026-10-06T09:50:06.570834+00:00", "event": "progress", "task": "data-eval", "condition": "subagents", "model_calls": 35}
+{"timestamp": "2026-10-06T09:50:10.587655+00:00", "event": "progress", "task": "logs-learn", "condition": "skills-auto", "model_calls": 10}
+{"timestamp": "2026-10-06T09:50:17.081192+00:00", "event": "finish", "task": "logs-learn", "condition": "skills-auto", "results": "results", "attempt": 1, "passed": 9, "total": 9, "tokens": 106181, "seconds": 95.2, "error": null, "skills_read": 1, "subagent_calls": 0}
+{"timestamp": "2026-10-06T09:50:41.558957+00:00", "event": "progress", "task": "logs-eval", "condition": "subagents", "model_calls": 10}
+{"timestamp": "2026-10-06T09:50:56.418894+00:00", "event": "progress", "task": "data-eval", "condition": "subagents", "model_calls": 40}
+{"timestamp": "2026-10-06T09:51:31.266104+00:00", "event": "progress", "task": "logs-eval", "condition": "subagents", "model_calls": 15}
+{"timestamp": "2026-10-06T09:51:46.602111+00:00", "event": "progress", "task": "data-eval", "condition": "subagents", "model_calls": 45}
+{"timestamp": "2026-10-06T09:52:21.618372+00:00", "event": "progress", "task": "logs-eval", "condition": "subagents", "model_calls": 20}
+{"timestamp": "2026-10-06T09:52:36.276529+00:00", "event": "progress", "task": "data-eval", "condition": "subagents", "model_calls": 50}
+{"timestamp": "2026-10-06T09:52:36.389490+00:00", "event": "finish", "task": "data-eval", "condition": "subagents", "results": "results", "attempt": 1, "passed": 0, "total": 9, "tokens": 540297, "seconds": 486.4, "error": "GraphRecursionError: Recursion limit of 100 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langgraph/errors/GRAPH_RECURSION_LIMIT", "skills_read": 0, "subagent_calls": 0}
+{"timestamp": "2026-10-06T09:52:56.390091+00:00", "event": "progress", "task": "logs-eval", "condition": "subagents", "model_calls": 25}
+{"timestamp": "2026-10-06T09:53:21.587842+00:00", "event": "progress", "task": "logs-eval", "condition": "subagents", "model_calls": 30}
+{"timestamp": "2026-10-06T09:53:46.581177+00:00", "event": "progress", "task": "logs-eval", "condition": "subagents", "model_calls": 35}
+{"timestamp": "2026-10-06T09:54:11.355833+00:00", "event": "progress", "task": "logs-eval", "condition": "subagents", "model_calls": 40}
+{"timestamp": "2026-10-06T09:54:36.148141+00:00", "event": "progress", "task": "logs-eval", "condition": "subagents", "model_calls": 45}
+{"timestamp": "2026-10-06T09:55:01.653815+00:00", "event": "progress", "task": "logs-eval", "condition": "subagents", "model_calls": 50}
+{"timestamp": "2026-10-06T09:55:01.789384+00:00", "event": "finish", "task": "logs-eval", "condition": "subagents", "results": "results", "attempt": 1, "passed": 0, "total": 10, "tokens": 454297, "seconds": 356.9, "error": "GraphRecursionError: Recursion limit of 100 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langgraph/errors/GRAPH_RECURSION_LIMIT", "skills_read": 0, "subagent_calls": 0}

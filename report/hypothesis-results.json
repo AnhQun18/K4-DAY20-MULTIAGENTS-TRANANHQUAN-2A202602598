@@ -1,0 +1,18 @@
+{
+  "H1": {
+    "technical_at_least_baseline": false,
+    "token_ratio": 2.648483035025687,
+    "token_increase_at_least_20_percent": true
+  },
+  "H2": {
+    "skills_highest_eval": true,
+    "eval_gain": 0.19090909090909092,
+    "gain_at_least_0_15": true
+  },
+  "H3": {
+    "learn_gain": 0.41944444444444445,
+    "eval_gain": 0.19090909090909092,
+    "learn_gain_greater": true
+  },
+  "limitation": "One run per task; observational comparison, not statistical confirmation."
+}

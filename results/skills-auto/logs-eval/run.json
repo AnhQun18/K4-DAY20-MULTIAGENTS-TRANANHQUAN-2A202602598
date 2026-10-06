@@ -1,0 +1,85 @@
+{
+  "task": "logs-eval",
+  "condition": "skills-auto",
+  "role": "eval",
+  "timestamp": "2026-10-06T09:48:06.960046+00:00",
+  "error": null,
+  "skills_sha256": "db1d157bfde9f453338dae7b548dd7b3162d89ff84fa942819acb6d6f3ed8e3f",
+  "seconds": 109.5,
+  "tokens": {
+    "input": 82899,
+    "output": 2308,
+    "total": 85207
+  },
+  "usage_by_model": {
+    "deepseek-flash": {
+      "output_token_details": {},
+      "output_tokens": 2308,
+      "total_tokens": 85207,
+      "input_token_details": {
+        "cache_read": 77568
+      },
+      "input_tokens": 82899
+    }
+  },
+  "tool_calls": 12,
+  "subagent_calls": 0,
+  "skills_read": 1,
+  "skills_modified": false,
+  "final_message": "Done. I created `workspace/errors.json`.\n\n**How I parsed it**\n\n- **Entry headers**: matched `[<date> <time> <offset>] <service> | <LEVEL> | <message>` with a regex. The message is everything after the *last* ` | ` on the header line.\n- **Continuation lines**: lines starting with a space (the `payload: {...}` dumps) were attached to the entry above them; the last such line becomes the `exception` field (`null` when absent).\n- **Repeat lines**: `-- last message repeated N times --` lines were attributed to the entry above (after its extra lines), summing N; `repeat_count = 1 + sum(N)`.\n- **Filtering**: kept only levels ERROR / SEVERE / FATAL, case-insensitively (so `Error`, `error`, `severe`, `fatal` were included; INFO/DEBUG/WARN discarded). Level is upper-cased in the output.\n- **Timestamps**: parsed with the `±HHMM` offset and converted to UTC as `YYYY-MM-DDTHH:MM:SSZ` (e.g. `09:47:35 +0700` → `02:47:35Z`).\n- **Services**: lower-cased with `-` → `_` (`queue-worker` → `queue_worker`).\n- **Conventions**: added `schema_version: 2` and `generated_by: \"log-triage\"`, sorted `errors` by service then `timestamp_utc`, and computed `counts_by_service` as the sum of `repeat_count` per service.\n\n**Result**: 60 entries parsed, 24 error-class entries. Counts: `mailer` 8, `queue_worker` 23, `scheduler` 21 (total 52). I re-verified the counts, timestamp conversions, sort order, level casing, and JSON shape with an independent second pass before finishing.",
+  "score": 0.9,
+  "passed": 9,
+  "total": 10,
+  "checks": [
+    {
+      "name": "valid_structure",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "entry_count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "timestamps_utc",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "levels_uppercase",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "repeat_counts",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "counts_by_service",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_service_names",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_sorted_errors",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_schema_header",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_source_line",
+      "passed": false,
+      "detail": ""
+    }
+  ]
+}

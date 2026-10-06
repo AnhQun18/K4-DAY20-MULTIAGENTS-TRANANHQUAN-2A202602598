@@ -1,0 +1,80 @@
+{
+  "task": "data-eval",
+  "condition": "baseline",
+  "role": "eval",
+  "timestamp": "2026-10-06T09:44:32.092726+00:00",
+  "error": null,
+  "skills_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "seconds": 252.7,
+  "tokens": {
+    "input": 254271,
+    "output": 3588,
+    "total": 257859
+  },
+  "usage_by_model": {
+    "deepseek-flash": {
+      "input_tokens": 254271,
+      "input_token_details": {
+        "cache_read": 240768
+      },
+      "output_tokens": 3588,
+      "output_token_details": {},
+      "total_tokens": 257859
+    }
+  },
+  "tool_calls": 30,
+  "subagent_calls": 0,
+  "skills_read": 0,
+  "skills_modified": false,
+  "final_message": "Done. I wrote `workspace/answer.json`.\n\n**How I cleaned the data:**\n\n1. **Deduplication** — The file had 88 events but only 83 distinct order ids. Five ids (`A-2006`, `A-2011`, `A-2026`, `A-2047`, `A-2058`) appeared twice; I kept the first occurrence of each and removed the 5 duplicate events.\n\n2. **Missing totals** — Totals of `-1` (the \"unknown\" sentinel) were treated as missing and excluded from all revenue sums. 7 distinct orders had a missing total.\n\n3. **Total parsing** — String totals like `\"1,250.00\"` had their thousands separators stripped and were converted to numbers; numeric totals were used as-is.\n\n4. **Category normalisation** — Categories were lowercased and trimmed of surrounding spaces (e.g. `\" garden \"`, `\"GARDEN\"`, `\"Garden\"` → `garden`) before aggregating revenue.\n\n5. **UTC month bucketing** — Each `placed_at` timestamp was converted to UTC before deciding its month. This matters at the boundaries: `A-3002` (local `2024-03-31T22:30-05:00`) falls in **April** UTC and was excluded, while `A-3000` (local `2024-02-29T20:00-05:00`) falls in **March** UTC and was included.\n\n**Results:**\n- `march_revenue_utc`: 52957.19\n- `march_orders_utc`: 44\n- `top_category`: `toys`\n- `missing_total_orders`: 7\n- `duplicate_events_removed`: 5\n\nI also added the reporting-convention metadata keys (`currency`, `generated_at_utc`, `source_file`, `total_events`, `distinct_orders`). Note: no Acme conventions document was present in the sandbox (only `README.md` and `orders.json`), so I inferred these standard fields — if Acme's bot expects a specific schema, let me know and I'll adjust.",
+  "score": 0.5555555555555556,
+  "passed": 5,
+  "total": 9,
+  "checks": [
+    {
+      "name": "march_revenue_utc",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "march_orders_utc",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "top_category",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "missing_total_orders",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "duplicate_events_removed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rule_money_in_cents",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "rule_meta_block",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "rule_clean_csv",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "rule_sorted_keys_format",
+      "passed": false,
+      "detail": ""
+    }
+  ]
+}
